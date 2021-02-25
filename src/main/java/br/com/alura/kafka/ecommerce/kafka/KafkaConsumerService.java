@@ -1,21 +1,20 @@
-package br.com.alura.kafka.ecommerce;
+package br.com.alura.kafka.ecommerce.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.io.Closeable;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 import java.util.UUID;
 
-public class KafkaService implements Closeable {
+public class KafkaConsumerService implements Closeable {
     private final KafkaConsumer<String, String> consumer;
     private final ConsumerFunction parse;
 
-    public KafkaService(String groupId, String topic, ConsumerFunction parse) {
+    public KafkaConsumerService(String groupId, String topic, ConsumerFunction parse) {
         this.parse = parse;
         this.consumer = new KafkaConsumer<>(properties(groupId));
         consumer.subscribe(Collections.singletonList(topic));
@@ -24,6 +23,7 @@ public class KafkaService implements Closeable {
 
     public void run() throws InterruptedException {
         while (true) {
+            //consumer poll pergunta se há mensagens durante algum tempo
             var records = consumer.poll(Duration.ofMillis(100));
             if (!records.isEmpty()) {
                 System.out.println("Encontrei " + records.count() + " registros");

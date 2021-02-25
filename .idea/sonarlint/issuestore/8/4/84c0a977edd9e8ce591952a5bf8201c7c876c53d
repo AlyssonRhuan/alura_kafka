@@ -1,0 +1,12 @@
+
+M
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ
+Œ
+java:S1130"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(º™Ú7
+S	java:S106"9Replace this use of System.out or System.err by a logger.(°“ú÷üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(êç‹±
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ß«àt
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ÿ‰‡çüÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ð‡ó´þÿÿÿÿ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ÓÝž~
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÒöÁÝûÿÿÿÿ

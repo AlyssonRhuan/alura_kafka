@@ -1,13 +1,14 @@
 package br.com.alura.kafka.ecommerce;
 
+import br.com.alura.kafka.ecommerce.kafka.KafkaConsumerService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 public class FraudDetectorService {
     public static void main(String[] args) throws InterruptedException {
         var fraudService = new FraudDetectorService();
-        try (var service = new KafkaService(FraudDetectorService.class.getSimpleName(),
+        try (var consumer = new KafkaConsumerService(FraudDetectorService.class.getSimpleName(),
                     "ECOMMERCE_NEW_ORDER", fraudService::parse)) {
-            service.run();
+            consumer.run();
         }
     }
 
