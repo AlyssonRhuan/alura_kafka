@@ -1,8 +1,9 @@
 package br.com.alura.kafka.ecommerce;
 
-import br.com.alura.kafka.ecommerce.domain.Email;
 import br.com.alura.kafka.ecommerce.kafka.KafkaConsumerService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+
+import java.util.HashMap;
 
 public class EmailService {
     public static void main(String[] args) throws InterruptedException {
@@ -11,7 +12,8 @@ public class EmailService {
                 EmailService.class.getSimpleName(),
                 "ECOMMERCE_SEND_MAIL",
                 emailService::parse,
-                String.class)) {
+                String.class,
+                new HashMap<>())) {
             consumer.run();
         }
     }
