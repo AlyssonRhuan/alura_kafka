@@ -12,7 +12,6 @@ public class NewOrderMain {
         try (var orderProducer = new KafkaProducerService<Order>()) {
             try (var emailProducer = new KafkaProducerService<String>()) {
                 for (var i = 0; i < 10; i++) {
-
                     var userId = UUID.randomUUID().toString();
                     var orderId = UUID.randomUUID().toString();
                     var amount = new BigDecimal(Math.random() * 5000 + 1);
