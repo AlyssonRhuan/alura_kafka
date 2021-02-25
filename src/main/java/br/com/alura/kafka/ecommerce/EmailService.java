@@ -1,13 +1,17 @@
 package br.com.alura.kafka.ecommerce;
 
+import br.com.alura.kafka.ecommerce.domain.Email;
 import br.com.alura.kafka.ecommerce.kafka.KafkaConsumerService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 public class EmailService {
     public static void main(String[] args) throws InterruptedException {
         var emailService = new EmailService();
-        try (var consumer = new KafkaConsumerService(EmailService.class.getSimpleName(),
-                "ECOMMERCE_SEND_MAIL", emailService::parse)) {
+        try (var consumer = new KafkaConsumerService(
+                EmailService.class.getSimpleName(),
+                "ECOMMERCE_SEND_MAIL",
+                emailService::parse,
+                String.class)) {
             consumer.run();
         }
     }

@@ -1,6 +1,6 @@
 package br.com.alura.kafka.ecommerce.kafka;
 
-import br.com.alura.kafka.ecommerce.kafka.Serializer.GsonSerializer;
+import br.com.alura.kafka.ecommerce.Serializer.GsonSerializer;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;

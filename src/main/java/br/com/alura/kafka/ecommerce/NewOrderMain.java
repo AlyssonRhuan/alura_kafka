@@ -1,5 +1,6 @@
 package br.com.alura.kafka.ecommerce;
 
+import br.com.alura.kafka.ecommerce.domain.Email;
 import br.com.alura.kafka.ecommerce.domain.Order;
 import br.com.alura.kafka.ecommerce.kafka.KafkaProducerService;
 
@@ -18,8 +19,10 @@ public class NewOrderMain {
                     var order = new Order(userId, orderId, amount);
                     orderProducer.send("ECOMMERCE_NEW_ORDER", userId, order);
 
-                    var email = "Thank you for your order, we are processing your order.";
-                    emailProducer.send("ECOMMERCE_SEND_MAIL", userId, email);
+                    var subject = "New order";
+                    var body = "Thank you for your order, we are processing your order.";
+                    var email = new Email(subject, body);
+                    emailProducer.send("ECOMMERCE_SEND_MAIL", userId, body);
                 }
             }
         }

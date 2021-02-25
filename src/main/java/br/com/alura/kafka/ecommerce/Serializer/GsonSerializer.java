@@ -1,4 +1,4 @@
-package br.com.alura.kafka.ecommerce.kafka.Serializer;
+package br.com.alura.kafka.ecommerce.Serializer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

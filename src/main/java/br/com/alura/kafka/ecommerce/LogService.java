@@ -1,5 +1,6 @@
 package br.com.alura.kafka.ecommerce;
 
+import br.com.alura.kafka.ecommerce.domain.Email;
 import br.com.alura.kafka.ecommerce.kafka.KafkaConsumerService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
@@ -9,7 +10,7 @@ public class LogService {
     public static void main(String[] args) throws InterruptedException {
         var logService = new LogService();
         try (var consumer = new KafkaConsumerService(LogService.class.getSimpleName(),
-                Pattern.compile("ECOMMERCE.*"), logService::parse)) {
+                Pattern.compile("ECOMMERCE.*"), logService::parse, String.class)) {
             consumer.run();
         }
     }
